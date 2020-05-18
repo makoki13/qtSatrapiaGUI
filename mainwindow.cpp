@@ -21,7 +21,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_btnNuevo_clicked()
 {
     ui->groupBox->show();
 

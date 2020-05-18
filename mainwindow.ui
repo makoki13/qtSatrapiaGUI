@@ -17,9 +17,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>80</x>
       <y>90</y>
-      <width>101</width>
+      <width>161</width>
       <height>51</height>
      </rect>
     </property>
@@ -86,7 +86,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnEntrar">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -150,7 +150,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btnNuevo">
     <property name="geometry">
      <rect>
       <x>280</x>
