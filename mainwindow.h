@@ -18,6 +18,12 @@ public:
 private slots:
     void on_btnNuevo_clicked();
 
+    void on_btnEntrar_clicked();
+
+    void on_txtLogin_returnPressed();
+
+    void on_txtPass_returnPressed();
+
 private:
     Ui::MainWindow *ui;
 };
