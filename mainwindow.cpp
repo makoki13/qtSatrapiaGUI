@@ -34,13 +34,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnNuevo_clicked()
 {
     ui->groupBox->show();
-
-    if (SUPERV_Usuario::existe_usuario("pablo.makoki@gmail.com","FIRST") == true) {
-        cout << "EXISTE!" << endl;
-    }
-    else {
-        cout << "NO EXISTE!" << endl;
-    }
+    ui->groupBox->setDisabled(false);
 }
 
 void MainWindow::on_btnEntrar_clicked()
@@ -64,15 +58,11 @@ void MainWindow::on_btnEntrar_clicked()
         return;
     }
 
-    cout << "-1- " << usuario.toStdString() << "  " << clave.toStdString() << endl;
-
-    if (SUPERV_Usuario::existe_usuario(usuario, clave) == true) {
-        cout << "-2- OK " << endl;
+    if (SUPERV_Usuario::existe_usuario(usuario, clave) == true) {        
         msgBox.setText("Usuario correcto.");
         msgBox.exec();
     }
-    else {
-        cout << "-3- KO " << endl;
+    else {        
         msgBox.setText("Usuario no existe o contraseña incorrecta.");
         ui->txtPass->setText("");
         ui->txtLogin->setFocus();
