@@ -95,22 +95,24 @@ void MainWindow::on_btnRegistrar_clicked()
 
     if (usuario == "") {
         msgBox.setText("Falta el usuario.");
-        ui->txtPass_2->setText("");
         ui->txtLogin_2->setFocus();
         ui->txtLogin_2->selectAll();
         msgBox.exec();
+
         return;
     }
     if (clave == "") {
         msgBox.setText("Falta la contraseña.");
         ui->txtPass_2->setFocus();
         msgBox.exec();
+
         return;
     }
     if (claveRepeticion == "") {
         msgBox.setText("Falta la confrmación de la contraseña.");
         ui->txtPass_3->setFocus();
         msgBox.exec();
+
         return;
     }
     if (claveRepeticion != clave) {
@@ -119,34 +121,30 @@ void MainWindow::on_btnRegistrar_clicked()
         ui->txtPass_3->setText("");
         ui->txtPass_2->setFocus();
         msgBox.exec();
+
         return;
     }
 
-    /* TODO Nueva función existe_usuario_registrado
     if (SUPERV_Usuario::existe_usuario_registrado(usuario) == true) {
-        msgBox.setText("El Usuario ya existe.");
+        msgBox.setText("El Usuario ya existe.");        
         msgBox.exec();
+        ui->txtLogin_2->setText("");
+        ui->txtPass_2->setText("");
+        ui->txtPass_3->setText("");
+        ui->txtLogin_2->setFocus();
+
+        return;
     }
     else {
-        //Sustituirpor lo de abajo
         msgBox.setText("Usuario registrado");
         msgBox.exec();
-        ui->txtPass->setText(usuario);
-        ui->txtLogin->setText(clave);
+        ui->txtLogin->setText(usuario);
+        ui->txtPass->setText(clave);
+
+        SUPERV_Usuario::crea_usuario(usuario, clave);
+
         return;
     }
-    */
-
-    //Quitar cuando version final
-    msgBox.setText("Usuario registrado");
-    msgBox.exec();
-    ui->txtLogin->setText(usuario);
-    ui->txtPass->setText(clave);
-
-
-    SUPERV_Usuario::crea_usuario(usuario, clave);
-
-    return;
 }
 
 void MainWindow::on_txtLogin_2_returnPressed()
