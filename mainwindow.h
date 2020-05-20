@@ -24,6 +24,14 @@ private slots:
 
     void on_txtPass_returnPressed();
 
+    void on_btnRegistrar_clicked();
+
+    void on_txtLogin_2_returnPressed();
+
+    void on_txtPass_2_returnPressed();
+
+    void on_txtPass_3_returnPressed();
+
 private:
     Ui::MainWindow *ui;
 };

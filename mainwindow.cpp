@@ -35,6 +35,7 @@ void MainWindow::on_btnNuevo_clicked()
 {
     ui->groupBox->show();
     ui->groupBox->setDisabled(false);
+    ui->txtLogin_2->setFocus();
 }
 
 void MainWindow::on_btnEntrar_clicked()
@@ -81,4 +82,84 @@ void MainWindow::on_txtLogin_returnPressed()
 void MainWindow::on_txtPass_returnPressed()
 {
     ui->btnEntrar->setFocus();
+}
+
+void MainWindow::on_btnRegistrar_clicked()
+{
+    QMessageBox msgBox;
+    QString usuario = ui->txtLogin_2->text();
+    QString clave = ui->txtPass_2->text();
+    QString claveRepeticion = ui->txtPass_3->text();
+
+    usuario = usuario.toUpper();
+
+    if (usuario == "") {
+        msgBox.setText("Falta el usuario.");
+        ui->txtPass_2->setText("");
+        ui->txtLogin_2->setFocus();
+        ui->txtLogin_2->selectAll();
+        msgBox.exec();
+        return;
+    }
+    if (clave == "") {
+        msgBox.setText("Falta la contraseña.");
+        ui->txtPass_2->setFocus();
+        msgBox.exec();
+        return;
+    }
+    if (claveRepeticion == "") {
+        msgBox.setText("Falta la confrmación de la contraseña.");
+        ui->txtPass_3->setFocus();
+        msgBox.exec();
+        return;
+    }
+    if (claveRepeticion != clave) {
+        msgBox.setText("La contraseña y su confirmación no coinciden");
+        ui->txtPass_2->setText("");
+        ui->txtPass_3->setText("");
+        ui->txtPass_2->setFocus();
+        msgBox.exec();
+        return;
+    }
+
+    /* TODO Nueva función existe_usuario_registrado
+    if (SUPERV_Usuario::existe_usuario_registrado(usuario) == true) {
+        msgBox.setText("El Usuario ya existe.");
+        msgBox.exec();
+    }
+    else {
+        //Sustituirpor lo de abajo
+        msgBox.setText("Usuario registrado");
+        msgBox.exec();
+        ui->txtPass->setText(usuario);
+        ui->txtLogin->setText(clave);
+        return;
+    }
+    */
+
+    //Quitar cuando version final
+    msgBox.setText("Usuario registrado");
+    msgBox.exec();
+    ui->txtLogin->setText(usuario);
+    ui->txtPass->setText(clave);
+
+
+    SUPERV_Usuario::crea_usuario(usuario, clave);
+
+    return;
+}
+
+void MainWindow::on_txtLogin_2_returnPressed()
+{
+    ui->txtPass_2->setFocus();
+}
+
+void MainWindow::on_txtPass_2_returnPressed()
+{
+    ui->txtPass_3->setFocus();
+}
+
+void MainWindow::on_txtPass_3_returnPressed()
+{
+    ui->btnRegistrar->setFocus();
 }
