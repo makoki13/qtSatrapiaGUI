@@ -29,7 +29,8 @@ SOURCES += \
     ../QtSatrapia/superv_usuario.cpp \
     ../QtSatrapia/usuario.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    partidawindow.cpp
 
 HEADERS += \
     ../QtSatrapia/item.h \
@@ -42,10 +43,12 @@ HEADERS += \
     ../QtSatrapia/superv_partida.h \
     ../QtSatrapia/superv_usuario.h \
     ../QtSatrapia/usuario.h \
-    mainwindow.h
+    mainwindow.h \
+    partidawindow.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    partidawindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

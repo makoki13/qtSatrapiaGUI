@@ -4,6 +4,7 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "partidawindow.h"
 
 #include "../QtSatrapia/superv_usuario.h"
 
@@ -62,6 +63,17 @@ void MainWindow::on_btnEntrar_clicked()
     if (SUPERV_Usuario::existe_usuario(usuario, clave) == true) {        
         msgBox.setText("Usuario correcto.");
         msgBox.exec();
+
+        /*
+        PartidaWindow partidaWindow;
+        partidaWindow.setModal(true);
+        partidaWindow.exec();
+        */
+
+        partidaWindow = new PartidaWindow(this);
+        partidaWindow->show();
+
+        this->hide();
     }
     else {        
         msgBox.setText("Usuario no existe o contraseña incorrecta.");
