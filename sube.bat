@@ -10,5 +10,6 @@ cd C:\Qt\proyectos\QtSatrapia\
 git add .
 git commit -m "%comentario%"
 git push origin master
+cd C:\Qt\proyectos\qtSatrapiaGUI\
 echo "fin!"
 exit

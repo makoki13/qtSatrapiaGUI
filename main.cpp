@@ -12,7 +12,9 @@ int main(int argc, char *argv[])
     Item::inicializa();
 
     QApplication a(argc, argv);
+
     MainWindow w;
     w.show();
+
     return a.exec();
 }

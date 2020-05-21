@@ -71,6 +71,7 @@ void MainWindow::on_btnEntrar_clicked()
         */
 
         partidaWindow = new PartidaWindow(this);
+        partidaWindow->setUsuario(usuario);
         partidaWindow->show();
 
         this->hide();
