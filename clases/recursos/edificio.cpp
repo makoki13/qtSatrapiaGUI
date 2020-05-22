@@ -5,7 +5,7 @@ Edificio::Edificio()
 
 }
 
-Edificio::Edificio(Almacen almacen)
+Edificio::Edificio (Almacen almacen)
 {
     this->almacen = almacen;
 }

@@ -17,7 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \    
+SOURCES += \
+    clases/recursos/estructura.cpp \
     clases/item.cpp \
     clases/jugador.cpp \
     clases/partida.cpp \
@@ -38,9 +39,11 @@ SOURCES += \
     clases/usuario.cpp \
     main.cpp \
     mainwindow.cpp \
-    partidawindow.cpp
+    partidawindow.cpp \
+    testclases.cpp
 
-HEADERS += \    
+HEADERS += \
+    clases/recursos/estructura.h \
     clases/item.h \
     clases/jugador.h \
     clases/partida.h \
@@ -60,11 +63,13 @@ HEADERS += \
     clases/superv_usuario.h \
     clases/usuario.h \
     mainwindow.h \
-    partidawindow.h
+    partidawindow.h \
+    testclases.h
 
 FORMS += \
     mainwindow.ui \
-    partidawindow.ui
+    partidawindow.ui \
+    testclases.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -75,9 +80,4 @@ SUBDIRS += \
     clases/satrapia_libreria.pro
 
 DISTFILES += \
-    clases/.gitignore \
-    clases/build/.qmake.stash \
-    clases/build/debug/satrapia_libreria.exe \
-    clases/build/object_script.satrapia_libreria.Debug \
-    clases/build/object_script.satrapia_libreria.Release \
-    clases/build/satrapia
+

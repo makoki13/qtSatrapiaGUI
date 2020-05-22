@@ -1,4 +1,5 @@
-#include "mainwindow.h"
+#include "testclases.h"
+
 
 #include <QApplication>
 
@@ -13,7 +14,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    MainWindow w;
+    TestClases w;
     w.show();
 
     return a.exec();

@@ -1,19 +1,24 @@
 #ifndef EDIFICIO_H
 #define EDIFICIO_H
 
-#include "../posicion.h"
-#include "almacen.h"
-#include "extractor.h"
+#include <QList>
 
-class Edificio
+#include "estructura.h"
+#include "extractor.h"
+#include "almacen.h"
+
+enum TipoEstadosEdificio {
+    EN_CONSTRUCCION = 1, TERMINADO = 2, ABANDONADO = 3
+};
+
+class Edificio : Estructura
 {
-private:
-    Posicion pos;
-    Almacen almacen;
+private:    
     QList<Extractor> extractores;
+    Almacen almacen;
 public:
     Edificio();
-    Edificio(Almacen almacen);
+    Edificio( Almacen almacen );
 };
 
 #endif // EDIFICIO_H
