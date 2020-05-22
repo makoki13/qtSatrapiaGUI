@@ -24,6 +24,13 @@ SOURCES += \
     ../QtSatrapia/persistencia_item.cpp \
     ../QtSatrapia/persistencia_partida.cpp \
     ../QtSatrapia/persistencia_usuario.cpp \
+    ../QtSatrapia/recursos/almacen.cpp \
+    ../QtSatrapia/recursos/edificio.cpp \
+    ../QtSatrapia/recursos/extractor.cpp \
+    ../QtSatrapia/recursos/fuente.cpp \
+    ../QtSatrapia/recursos/recurso.cpp \
+    ../QtSatrapia/recursos/recursonatural.cpp \
+    ../QtSatrapia/recursos/silo.cpp \
     ../QtSatrapia/sgbd.cpp \
     ../QtSatrapia/superv_partida.cpp \
     ../QtSatrapia/superv_usuario.cpp \
@@ -39,6 +46,13 @@ HEADERS += \
     ../QtSatrapia/persistencia_item.h \
     ../QtSatrapia/persistencia_partida.h \
     ../QtSatrapia/persistencia_usuario.h \
+    ../QtSatrapia/recursos/almacen.h \
+    ../QtSatrapia/recursos/edificio.h \
+    ../QtSatrapia/recursos/extractor.h \
+    ../QtSatrapia/recursos/fuente.h \
+    ../QtSatrapia/recursos/recurso.h \
+    ../QtSatrapia/recursos/recursonatural.h \
+    ../QtSatrapia/recursos/silo.h \
     ../QtSatrapia/sgbd.h \
     ../QtSatrapia/superv_partida.h \
     ../QtSatrapia/superv_usuario.h \
