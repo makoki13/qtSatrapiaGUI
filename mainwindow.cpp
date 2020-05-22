@@ -6,7 +6,7 @@
 #include "ui_mainwindow.h"
 #include "partidawindow.h"
 
-#include "../QtSatrapia/superv_usuario.h"
+#include "./clases/superv_usuario.h"
 
 using namespace std;
 

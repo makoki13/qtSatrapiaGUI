@@ -2,8 +2,8 @@
 
 #include <QApplication>
 
-#include "../QtSatrapia/item.h"
-#include "../QtSatrapia/sgbd.h"
+#include "./clases/item.h"
+#include "./clases/sgbd.h"
 
 int main(int argc, char *argv[])
 {

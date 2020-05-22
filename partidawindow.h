@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "../QtSatrapia/usuario.h"
+#include "./clases/usuario.h"
 
 namespace Ui {
 class PartidaWindow;

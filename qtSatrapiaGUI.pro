@@ -17,46 +17,48 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-    ../QtSatrapia/item.cpp \
-    ../QtSatrapia/jugador.cpp \
-    ../QtSatrapia/partida.cpp \
-    ../QtSatrapia/persistencia_item.cpp \
-    ../QtSatrapia/persistencia_partida.cpp \
-    ../QtSatrapia/persistencia_usuario.cpp \
-    ../QtSatrapia/recursos/almacen.cpp \
-    ../QtSatrapia/recursos/edificio.cpp \
-    ../QtSatrapia/recursos/extractor.cpp \
-    ../QtSatrapia/recursos/fuente.cpp \
-    ../QtSatrapia/recursos/recurso.cpp \
-    ../QtSatrapia/recursos/recursonatural.cpp \
-    ../QtSatrapia/recursos/silo.cpp \
-    ../QtSatrapia/sgbd.cpp \
-    ../QtSatrapia/superv_partida.cpp \
-    ../QtSatrapia/superv_usuario.cpp \
-    ../QtSatrapia/usuario.cpp \
+SOURCES += \    
+    clases/item.cpp \
+    clases/jugador.cpp \
+    clases/partida.cpp \
+    clases/persistencia_item.cpp \
+    clases/persistencia_partida.cpp \
+    clases/persistencia_usuario.cpp \
+    clases/posicion.cpp \
+    clases/recursos/almacen.cpp \
+    clases/recursos/edificio.cpp \
+    clases/recursos/extractor.cpp \
+    clases/recursos/fuente.cpp \
+    clases/recursos/recurso.cpp \
+    clases/recursos/recursonatural.cpp \
+    clases/recursos/silo.cpp \
+    clases/sgbd.cpp \
+    clases/superv_partida.cpp \
+    clases/superv_usuario.cpp \
+    clases/usuario.cpp \
     main.cpp \
     mainwindow.cpp \
     partidawindow.cpp
 
-HEADERS += \
-    ../QtSatrapia/item.h \
-    ../QtSatrapia/jugador.h \
-    ../QtSatrapia/partida.h \
-    ../QtSatrapia/persistencia_item.h \
-    ../QtSatrapia/persistencia_partida.h \
-    ../QtSatrapia/persistencia_usuario.h \
-    ../QtSatrapia/recursos/almacen.h \
-    ../QtSatrapia/recursos/edificio.h \
-    ../QtSatrapia/recursos/extractor.h \
-    ../QtSatrapia/recursos/fuente.h \
-    ../QtSatrapia/recursos/recurso.h \
-    ../QtSatrapia/recursos/recursonatural.h \
-    ../QtSatrapia/recursos/silo.h \
-    ../QtSatrapia/sgbd.h \
-    ../QtSatrapia/superv_partida.h \
-    ../QtSatrapia/superv_usuario.h \
-    ../QtSatrapia/usuario.h \
+HEADERS += \    
+    clases/item.h \
+    clases/jugador.h \
+    clases/partida.h \
+    clases/persistencia_item.h \
+    clases/persistencia_partida.h \
+    clases/persistencia_usuario.h \
+    clases/posicion.h \
+    clases/recursos/almacen.h \
+    clases/recursos/edificio.h \
+    clases/recursos/extractor.h \
+    clases/recursos/fuente.h \
+    clases/recursos/recurso.h \
+    clases/recursos/recursonatural.h \
+    clases/recursos/silo.h \
+    clases/sgbd.h \
+    clases/superv_partida.h \
+    clases/superv_usuario.h \
+    clases/usuario.h \
     mainwindow.h \
     partidawindow.h
 
@@ -68,3 +70,14 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+SUBDIRS += \
+    clases/satrapia_libreria.pro
+
+DISTFILES += \
+    clases/.gitignore \
+    clases/build/.qmake.stash \
+    clases/build/debug/satrapia_libreria.exe \
+    clases/build/object_script.satrapia_libreria.Debug \
+    clases/build/object_script.satrapia_libreria.Release \
+    clases/build/satrapia

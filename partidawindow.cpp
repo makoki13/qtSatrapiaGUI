@@ -5,8 +5,8 @@
 #include "partidawindow.h"
 #include "ui_partidawindow.h"
 
-#include "../QtSatrapia/superv_partida.h"
-#include "../QtSatrapia/superv_usuario.h"
+#include "./clases/superv_partida.h"
+#include "./clases/superv_usuario.h"
 
 PartidaWindow::PartidaWindow(QWidget *parent) :
     QDialog(parent),
