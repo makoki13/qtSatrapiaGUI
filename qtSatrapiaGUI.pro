@@ -31,7 +31,6 @@ SOURCES += \
     clases/recursos/extractor.cpp \
     clases/recursos/fuente.cpp \
     clases/recursos/recurso.cpp \
-    clases/recursos/recursonatural.cpp \
     clases/recursos/silo.cpp \
     clases/sgbd.cpp \
     clases/superv_partida.cpp \
@@ -56,7 +55,6 @@ HEADERS += \
     clases/recursos/extractor.h \
     clases/recursos/fuente.h \
     clases/recursos/recurso.h \
-    clases/recursos/recursonatural.h \
     clases/recursos/silo.h \
     clases/sgbd.h \
     clases/superv_partida.h \

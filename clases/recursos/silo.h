@@ -5,16 +5,22 @@
 
 class Silo
 {
-private:
+protected:
 
     Recurso recurso;
+    long capacidad;
+    long cantidad;
 
 public:
     Silo(Recurso r, long capacidad);
 
-    void suma(long cantidad);
+    void setCapacidad(long tope);
+    long getCapacidad();
+
+    long suma(long cantidad);
     long resta(long cantidad);
     bool estaVacio();
+    long getCantidad();
 };
 
 #endif // SILO_H

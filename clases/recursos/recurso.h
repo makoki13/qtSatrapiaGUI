@@ -3,24 +3,24 @@
 
 #include <QString>
 
+enum TipoRecurso {
+    COMIDA = 1,
+    MADERA = 2,
+    PIEDRA = 3,
+    HIERRO = 4,
+    ORO = 5,
+};
 
 class Recurso
-{
-private:
-    long tope = -1; //Sin tope
-
+{    
 public:
-    Recurso(QString nombre, long tope = -1);
-
     QString nombre;
-    long cantidad;
+    TipoRecurso tipo;
 
-    long getCantidad();
-    long setCantidad(long cantidad);
-    void sumaCantidad(long cantidad );
-    long extraeCantidad(long cantidad );
+    Recurso(QString nombre, TipoRecurso tipo);
 
-    void setTope(long tope);
+    QString getNombre();
+    TipoRecurso getTipo();
 };
 
 #endif // RECURSO_H

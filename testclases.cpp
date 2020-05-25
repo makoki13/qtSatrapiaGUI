@@ -5,6 +5,10 @@
 
 #include "./clases/posicion.h"
 
+#include "./clases/recursos/recurso.h"
+#include "./clases/recursos/fuente.h"
+#include "./clases/recursos/silo.h"
+
 using namespace std;
 
 TestClases::TestClases(QWidget *parent) :
@@ -18,10 +22,29 @@ TestClases::TestClases(QWidget *parent) :
     miPosicion.x = 10;
     miPosicion.y = 15;
 
-    cout << "pos: " << miPosicion.x << " , " << miPosicion.y << " , " << miPosicion.z << endl;
+    //ui->listWidget->addItem("Pos: " + QString::number(miPosicion.x));
+    Fuente fuente(miPosicion,Recurso("ORO",ORO));
+    Silo silo(fuente.getRecurso(),1000);
+
+
+    extractor.setFuente(fuente);
+
+    this->extractor.setSilo(silo);
+    this->extractor.setCantidadPorExtraccion(10);
+    this->extractor.setTiempoPorExtraccion(5);
+
+    long cantidad = this->extractor.getCantidadSilo();
+
+    ui->listWidget->addItem("Extractor: " + QString::number(cantidad));
 }
 
 TestClases::~TestClases()
 {
     delete ui;
+}
+
+void TestClases::on_pushButton_clicked()
+{
+    long cantidad = this->extractor.getCantidadSilo();
+    ui->listWidget->addItem("Extractor: " + QString::number(cantidad));
 }

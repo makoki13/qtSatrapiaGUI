@@ -10,10 +10,17 @@ class Fuente
 private:
     Posicion posicion;
     Recurso recurso;
+
+    long tope;
+    long cantidad;
 public:    
     Fuente(Posicion pos, Recurso r);
 
     long extraer(long cantidad);
+    void volcar(long cantidad);
+
+    Posicion getPosicion();
+    Recurso getRecurso();
 };
 
 #endif // FUENTE_H
