@@ -2,6 +2,11 @@
 
 #include "extractor.h"
 
+Extractor::Extractor()
+{
+
+}
+
 Extractor::Extractor(Fuente fuente, Silo silo) :
     fuente(fuente.getPosicion(), fuente.getRecurso()) ,
     silo(fuente.getRecurso(), silo.getCapacidad())

@@ -1,5 +1,10 @@
 #include "fuente.h"
 
+Fuente::Fuente()
+{
+
+}
+
 Fuente::Fuente(Posicion pos, Recurso r) : recurso(r.nombre, r.tipo) {
     this->posicion = pos;
     this->recurso = r;

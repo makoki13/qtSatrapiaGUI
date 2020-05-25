@@ -14,6 +14,7 @@ private:
     long tope;
     long cantidad;
 public:    
+    Fuente();
     Fuente(Posicion pos, Recurso r);
 
     long extraer(long cantidad);

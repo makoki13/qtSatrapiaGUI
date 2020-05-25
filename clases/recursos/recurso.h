@@ -17,6 +17,7 @@ public:
     QString nombre;
     TipoRecurso tipo;
 
+    Recurso();
     Recurso(QString nombre, TipoRecurso tipo);
 
     QString getNombre();

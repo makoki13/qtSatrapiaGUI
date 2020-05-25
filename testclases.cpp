@@ -33,6 +33,7 @@ TestClases::TestClases(QWidget *parent) :
     this->extractor.setCantidadPorExtraccion(10);
     this->extractor.setTiempoPorExtraccion(5);
 
+    this->extractor.extrae();
     long cantidad = this->extractor.getCantidadSilo();
 
     ui->listWidget->addItem("Extractor: " + QString::number(cantidad));

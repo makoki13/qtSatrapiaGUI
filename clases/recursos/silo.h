@@ -12,6 +12,7 @@ protected:
     long cantidad;
 
 public:
+    Silo();
     Silo(Recurso r, long capacidad);
 
     void setCapacidad(long tope);

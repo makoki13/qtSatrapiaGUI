@@ -1,5 +1,10 @@
 #include "silo.h"
 
+Silo::Silo()
+{
+
+}
+
 Silo::Silo(Recurso r, long capacidad) : recurso(r.nombre, r.tipo)
 {
     this->capacidad = capacidad;

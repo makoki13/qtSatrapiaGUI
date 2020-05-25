@@ -1,5 +1,10 @@
 #include "recurso.h"
 
+Recurso::Recurso()
+{
+
+}
+
 Recurso::Recurso(QString nombre, TipoRecurso tipo)
 {
     this->tipo = tipo;
