@@ -1,17 +1,15 @@
-#include <QTimer>
-
 #include "extractor.h"
 
 Extractor::Extractor()
 {
-
+    //connect(cronometro, SIGNAL(timeout()),this,SLOT(_extraer()));
 }
 
 Extractor::Extractor(Fuente fuente, Silo silo) :
     fuente(fuente.getPosicion(), fuente.getRecurso()) ,
     silo(fuente.getRecurso(), silo.getCapacidad())
 {
-
+    connect(cronometro, SIGNAL(timeout()),this,SLOT(_extraer()));
 }
 
 void Extractor::setFuente(Fuente fuente) {
@@ -20,6 +18,11 @@ void Extractor::setFuente(Fuente fuente) {
 
 void Extractor::setSilo(Silo silo) {
     this->silo = silo;
+}
+
+Silo Extractor::getSilo()
+{
+    return silo;
 }
 
 void Extractor::setCantidadPorExtraccion(long cantidad)
@@ -49,16 +52,32 @@ void Extractor::_extraer()
    if (cantidad > 0) this->silo.suma(cantidad);
 }
 
-long Extractor::extrae()
+void Extractor::extrae()
 {
-    QTimer timer;
-    QObject::connect(
-                &timer,
-                &QTimer::timeout,
-                this,
-                QOverload<>::of(&Extractor::_extraer));
+    cronometro->start(1000);
+}
 
-    timer.start(1000);
+void Extractor::para()
+{
+    cronometro->stop();
+}
 
-    return 666;
+long Extractor::saca(long cantidad)
+{
+    long cantidadActualEnSilo = this->silo.getCantidad();
+    if (cantidad > cantidadActualEnSilo) cantidad = cantidadActualEnSilo;
+    this->silo.resta(cantidad);
+    return cantidad;
+}
+
+long Extractor::vacia()
+{
+    long cantidadActualEnSilo = this->silo.getCantidad();
+    this->silo.resta(cantidadActualEnSilo);
+    return cantidadActualEnSilo;
+}
+
+TipoEstadosExtractor Extractor::getEstado()
+{
+    return this->estado;
 }

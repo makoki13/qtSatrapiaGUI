@@ -22,6 +22,8 @@ public:
     long resta(long cantidad);
     bool estaVacio();
     long getCantidad();
+
+    QString nombreRecurso();
 };
 
 #endif // SILO_H

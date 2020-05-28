@@ -33,7 +33,6 @@ TestClases::TestClases(QWidget *parent) :
     this->extractor.setCantidadPorExtraccion(10);
     this->extractor.setTiempoPorExtraccion(5);
 
-    this->extractor.extrae();
     long cantidad = this->extractor.getCantidadSilo();
 
     ui->listWidget->addItem("Extractor: " + QString::number(cantidad));
@@ -48,4 +47,14 @@ void TestClases::on_pushButton_clicked()
 {
     long cantidad = this->extractor.getCantidadSilo();
     ui->listWidget->addItem("Extractor: " + QString::number(cantidad));
+}
+
+void TestClases::on_pushButton_2_clicked()
+{
+    this->extractor.extrae();
+}
+
+void TestClases::on_pushButton_3_clicked()
+{
+    this->extractor.para();
 }

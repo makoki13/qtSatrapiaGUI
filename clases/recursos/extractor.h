@@ -2,18 +2,28 @@
 #define EXTRACTOR_H
 
 #include <QObject>
+#include <QTimer>
 
 #include "fuente.h"
 #include "silo.h"
 
-class Extractor : public QObject
+enum TipoEstadosExtractor {
+    PARADO = 0, EN_MARCHA = 1
+};
+
+class Extractor : QObject
 {
-    Q_OBJECT;
+
+    Q_OBJECT
+
 private:
     Fuente fuente;
     Silo silo;
     long cantidadPorExtraccion;
     long tiempoPorExtraccion;
+    QTimer *cronometro = new QTimer(this);
+
+    TipoEstadosExtractor estado;
 
 public slots:
     void _extraer();
@@ -25,6 +35,7 @@ public:
 
     void setFuente(Fuente f);
     void setSilo(Silo s);
+    Silo getSilo();
 
     void setCantidadPorExtraccion(long cantidad);
     void setTiempoPorExtraccion(long segundos);
@@ -33,7 +44,13 @@ public:
 
     long getCantidadSilo();
 
-    long extrae();
+    void extrae();
+    void para();
+
+    long saca(long cantidad);
+    long vacia();
+
+    TipoEstadosExtractor getEstado();
 };
 
 #endif // EXTRACTOR_H

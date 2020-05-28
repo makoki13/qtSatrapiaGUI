@@ -2,8 +2,7 @@
 #define ALMACEN_H
 
 #include "silo.h"
-#include "QList"
-
+#include <QList>
 
 class Almacen
 {
@@ -13,6 +12,7 @@ public:
     Almacen();
 
     void addSilo(Silo silo);
+    QList<Silo> listaSilos();
 };
 
 #endif // ALMACEN_H

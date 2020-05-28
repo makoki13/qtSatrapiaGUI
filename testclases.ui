@@ -36,6 +36,32 @@
     <string>REFRESCA</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>710</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>INICIA</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>710</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TERMINA</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

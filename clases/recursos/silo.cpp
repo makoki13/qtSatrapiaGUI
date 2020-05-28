@@ -57,3 +57,8 @@ long Silo::getCantidad()
 {
     return this->cantidad;
 }
+
+QString Silo::nombreRecurso()
+{
+    return recurso.getNombre();
+}
