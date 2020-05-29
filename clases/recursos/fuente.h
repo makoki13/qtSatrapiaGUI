@@ -15,7 +15,7 @@ private:
     long cantidad;
 public:    
     Fuente();
-    Fuente(Posicion pos, Recurso r);
+    Fuente(Posicion pos, Recurso r, long cantidadInicial);
 
     long extraer(long cantidad);
     void volcar(long cantidad);

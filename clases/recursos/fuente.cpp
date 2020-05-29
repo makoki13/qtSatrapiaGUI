@@ -5,10 +5,11 @@ Fuente::Fuente()
 
 }
 
-Fuente::Fuente(Posicion pos, Recurso r) : recurso(r.nombre, r.tipo) {
+Fuente::Fuente(Posicion pos, Recurso r, long cantidadInicial) : recurso(r.nombre, r.tipo) {
     this->posicion = pos;
     this->recurso = r;
     this->tope = -1;
+    this->cantidad = cantidadInicial;
 }
 
 long Fuente::extraer(long cantidad)

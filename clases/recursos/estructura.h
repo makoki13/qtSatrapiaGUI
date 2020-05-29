@@ -9,10 +9,11 @@
 
 class Estructura
 {    
-private:
-    Posicion pos;
+private:    
     bool esMovible;
     QList<Silo> silos;
+protected:
+    Posicion pos;
 public:
     Estructura();
     Estructura(Posicion posInicial, bool esMovible, QList<Silo> silos);

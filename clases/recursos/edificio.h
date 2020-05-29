@@ -12,13 +12,13 @@ enum TipoEstadosEdificio {
     EN_CONSTRUCCION = 1, TERMINADO = 2, ABANDONADO = 3
 };
 
-class Edificio : Estructura, public QObject
+class Edificio : public QObject , Estructura
 {    
 
     Q_OBJECT
 
 private:    
-    QList<Extractor> extractores;
+    QVector<Extractor*> extractores;
     Almacen almacen;
 
     Silo getSiloDeAlmacen(QString nombreRecurso);
@@ -26,11 +26,17 @@ public:
     Edificio();
     Edificio( Almacen almacen );
 
-    void addExtractor( Extractor *extractor );
-    void addSiloEnAlmacen(Recurso recurso);
-    void recoge();
+    void setAlmacen( Almacen almacen );
 
+    void addExtractor( Extractor *extractor );
+    void addExtractor_new();
+    void addSiloEnAlmacen(Recurso recurso);    
     void recogeRecursos();
+
+    long getCantidadEnAlmacen(QString nombreRecurso);
+
+public slots:
+    void recoge();
 };
 
 #endif // EDIFICIO_H

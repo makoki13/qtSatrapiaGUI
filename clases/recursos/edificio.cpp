@@ -1,6 +1,9 @@
+#include <iostream>
 #include <QTimer>
 
 #include "edificio.h"
+
+using namespace std;
 
 Silo Edificio::getSiloDeAlmacen(QString nombreRecurso)
 {
@@ -28,10 +31,30 @@ Edificio::Edificio (Almacen almacen)
     this->almacen = almacen;
 }
 
+void Edificio::setAlmacen(Almacen almacen)
+{
+    this->almacen = almacen;
+}
+
 void Edificio::addExtractor( Extractor *extractor )
 {
-    extractores.append(*extractor);
+    extractores.append(extractor);
     extractor->extrae();
+}
+
+void Edificio::addExtractor_new()
+{
+    Fuente fuente(this->pos,Recurso("ORO",ORO), 10000);
+    Silo siloExtractor(fuente.getRecurso(),1000);
+
+    /*
+    extractor.setFuente(fuente);
+    extractor.setSilo(siloExtractor);
+    extractor.setCantidadPorExtraccion(10);
+    extractor.setTiempoPorExtraccion(5);
+    */
+
+    extractores.append(new Extractor(fuente,siloExtractor,10,5) );
 }
 
 void Edificio::addSiloEnAlmacen(Recurso recurso)
@@ -43,8 +66,11 @@ void Edificio::addSiloEnAlmacen(Recurso recurso)
 
 void Edificio::recoge()
 {
-    QList<Extractor>::Iterator it = extractores.begin();
-    for ( ; it != extractores.end(); ++it ) {
+    QVector<Extractor>::Iterator it = *extractores.begin();
+
+    cout << extractores.size() << endl;
+
+    for ( ; it != *extractores.end(); ++it ) {
         Extractor& extractor = *it;
         long cantidad = extractor.vacia();
 
@@ -59,7 +85,13 @@ void Edificio::recogeRecursos()
 {
     QTimer *cronometro = new QTimer();
     connect(cronometro, SIGNAL(timeout()),this,SLOT(recoge()));
-    cronometro->start(7000);
+    cronometro->start(3000);
+}
+
+long Edificio::getCantidadEnAlmacen(QString nombreRecurso)
+{
+    Silo siloDeAlmacen = getSiloDeAlmacen( nombreRecurso );
+    return siloDeAlmacen.getCantidad();
 }
 
 

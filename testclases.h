@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "./clases/recursos/extractor.h"
+#include "./clases/recursos/edificio.h"
 
 namespace Ui {
 class TestClases;
@@ -27,7 +27,7 @@ private slots:
 private:
     Ui::TestClases *ui;
 
-    Extractor extractor;
+    Edificio edificio;
 };
 
 #endif // TESTCLASES_H

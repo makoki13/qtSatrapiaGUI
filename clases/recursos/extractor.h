@@ -11,7 +11,7 @@ enum TipoEstadosExtractor {
     PARADO = 0, EN_MARCHA = 1
 };
 
-class Extractor : QObject
+class Extractor : public QObject
 {
 
     Q_OBJECT
@@ -32,6 +32,7 @@ public:
     //TODO: Debe de haber un constructor que acepte una fuente.
     Extractor();
     Extractor(Fuente fuente, Silo silo);
+    Extractor(Fuente fuente, Silo silo, long cantidadPorExtraccion, long tiempoPorExtraccion);
 
     void setFuente(Fuente f);
     void setSilo(Silo s);

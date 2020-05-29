@@ -6,10 +6,18 @@ Extractor::Extractor()
 }
 
 Extractor::Extractor(Fuente fuente, Silo silo) :
-    fuente(fuente.getPosicion(), fuente.getRecurso()) ,
+    fuente(fuente.getPosicion(), fuente.getRecurso(), 0) ,
     silo(fuente.getRecurso(), silo.getCapacidad())
 {
     connect(cronometro, SIGNAL(timeout()),this,SLOT(_extraer()));
+}
+
+Extractor::Extractor(Fuente fuente, Silo silo, long cantidadPorExtraccion, long tiempoPorExtraccion) :
+    fuente(fuente.getPosicion(), fuente.getRecurso(), 0) ,
+    silo(fuente.getRecurso(), silo.getCapacidad())
+{
+    setCantidadPorExtraccion(cantidadPorExtraccion);
+    setTiempoPorExtraccion(tiempoPorExtraccion);
 }
 
 void Extractor::setFuente(Fuente fuente) {
@@ -54,11 +62,13 @@ void Extractor::_extraer()
 
 void Extractor::extrae()
 {
+    estado = EN_MARCHA;
     cronometro->start(1000);
 }
 
 void Extractor::para()
 {
+    estado = PARADO;
     cronometro->stop();
 }
 
