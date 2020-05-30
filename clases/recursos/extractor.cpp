@@ -2,7 +2,7 @@
 
 Extractor::Extractor()
 {
-    //connect(cronometro, SIGNAL(timeout()),this,SLOT(_extraer()));
+    connect(cronometro, SIGNAL(timeout()),this,SLOT(_extraer()));
 }
 
 Extractor::Extractor(Fuente fuente, Silo silo) :
@@ -18,6 +18,9 @@ Extractor::Extractor(Fuente fuente, Silo silo, long cantidadPorExtraccion, long 
 {
     setCantidadPorExtraccion(cantidadPorExtraccion);
     setTiempoPorExtraccion(tiempoPorExtraccion);
+
+    connect(cronometro, SIGNAL(timeout()),this,SLOT(_extraer()));
+    extrae();
 }
 
 void Extractor::setFuente(Fuente fuente) {

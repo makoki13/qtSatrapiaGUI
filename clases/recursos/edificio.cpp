@@ -1,5 +1,6 @@
 #include <iostream>
 #include <QTimer>
+#include <QDebug>
 
 #include "edificio.h"
 
@@ -66,11 +67,11 @@ void Edificio::addSiloEnAlmacen(Recurso recurso)
 
 void Edificio::recoge()
 {
-    QVector<Extractor>::Iterator it = *extractores.begin();
+    //QVector<Extractor>::Iterator it = *extractores.begin();
 
-    cout << extractores.size() << endl;
-
+    /*
     for ( ; it != *extractores.end(); ++it ) {
+        cout << extractores.size() << endl;
         Extractor& extractor = *it;
         long cantidad = extractor.vacia();
 
@@ -79,6 +80,20 @@ void Edificio::recoge()
 
         siloDeAlmacen.suma(cantidad);
     }
+    */
+
+    QVectorIterator<Extractor*> it(extractores);
+     while (it.hasNext()) {
+         Extractor *e = it.next();
+         long cantidad = e->vacia();
+
+         Silo siloDeExtractor = e->getSilo();
+         Silo siloDeAlmacen = getSiloDeAlmacen( siloDeExtractor.nombreRecurso() );
+
+         siloDeAlmacen.suma(cantidad);
+
+         qDebug() << getCantidadEnAlmacen("ORO");
+     }
 }
 
 void Edificio::recogeRecursos()

@@ -27,6 +27,8 @@ private slots:
 private:
     Ui::TestClases *ui;
 
+    Almacen almacen;
+    Extractor extractor;
     Edificio edificio;
 };
 

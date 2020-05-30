@@ -9,6 +9,7 @@ Silo::Silo(Recurso r, long capacidad) : recurso(r.nombre, r.tipo)
 {
     this->capacidad = capacidad;
     this->recurso = r;
+    this->cantidad = 0;
 }
 
 void Silo::setCapacidad(long tope)

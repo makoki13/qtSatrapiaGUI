@@ -35,17 +35,17 @@ TestClases::TestClases(QWidget *parent) :
     ui->listWidget->addItem("Extractor: " + QString::number(cantidad));
     */
 
-    Almacen almacen;
+    //Almacen almacen;
     Silo silo(Recurso("ORO",ORO),1000);
-    almacen.addSilo(silo);
+    almacen.addSilo(Silo(Recurso("ORO",ORO),1000));
     edificio.setAlmacen(almacen);
 
-    Fuente fuente(miPosicion,Recurso("ORO",ORO), 10000);
-    Silo siloExtractor(fuente.getRecurso(),1000);
+    //Fuente fuente(miPosicion,Recurso("ORO",ORO), 10000);
+    //Silo siloExtractor(fuente.getRecurso(),1000);
 
-    Extractor extractor; //TODO Probar el otro constructor
-    extractor.setFuente(fuente);
-    extractor.setSilo(siloExtractor);
+    //Extractor extractor; //TODO Probar el otro constructor
+    extractor.setFuente(Fuente(miPosicion,Recurso("ORO",ORO), 10000));
+    extractor.setSilo(Silo(Recurso("ORO",ORO),1000));
     extractor.setCantidadPorExtraccion(10);
     extractor.setTiempoPorExtraccion(5);
 
@@ -67,10 +67,10 @@ void TestClases::on_pushButton_clicked()
 
 void TestClases::on_pushButton_2_clicked()
 {
-    //this->extractor.extrae();
+    this->extractor.extrae();
 }
 
 void TestClases::on_pushButton_3_clicked()
 {
-    //this->extractor.para();
+    this->extractor.para();
 }
