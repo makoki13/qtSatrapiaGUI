@@ -9,6 +9,7 @@ enum TipoRecurso {
     PIEDRA = 3,
     HIERRO = 4,
     ORO = 5,
+    POBLACION = 6,
 };
 
 class Recurso

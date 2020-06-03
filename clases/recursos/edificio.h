@@ -21,7 +21,6 @@ private:
     QVector<Extractor*> extractores;
     Almacen almacen;
 
-    Silo getSiloDeAlmacen(QString nombreRecurso);
 public:
     Edificio();
     Edificio( Almacen almacen );
@@ -34,6 +33,8 @@ public:
     void recogeRecursos();
 
     long getCantidadEnAlmacen(QString nombreRecurso);
+
+    Silo getSiloDeAlmacen(QString nombreRecurso);
 
 public slots:
     void recoge();
