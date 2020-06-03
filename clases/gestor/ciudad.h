@@ -1,3 +1,10 @@
+/**
+    Una ciudad tiene varios edificios que son gestionados por el Palacio
+    (o la alcadía (eso en proyecto))
+    La ciudad tiene una posicion y un nombre
+    Hay una única ciudad que alberga el palacio.
+*/
+
 #ifndef CIUDAD_H
 #define CIUDAD_H
 

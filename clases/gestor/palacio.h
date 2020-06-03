@@ -1,3 +1,18 @@
+/**
+    El Palacio gestiona los recursos, los edificios y las otras, así como otras variables del juego.
+    Los edificios pueden ser:
+    Fuera de la ciudad (tienen su propia posicion)
+    - Granjas (recurso COMIDA)
+    - Serrerias (recurso MADERA)
+    - Minas de piedra (recurso PIEDRA), metal (recurso METAL) y oro (recurso ORO)
+    Dentro de la ciudad (misma posición)
+    - Residencias (Albergan el recurso POBLACION)
+    - 1 Cuartel
+    - 1 Mercado
+    - 1 Almacen donde se almacenaran los recursos
+    - 1 Embajada
+*/
+
 #ifndef PALACIO_H
 #define PALACIO_H
 
