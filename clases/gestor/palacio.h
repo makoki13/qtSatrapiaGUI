@@ -27,6 +27,8 @@ class Palacio
 {
 
 private:
+    QString jefe;
+
     QVector<Edificio*> granjas;
     QVector<Edificio*> serrerias;
     QVector<Edificio*> minasPiedra;
@@ -46,8 +48,9 @@ public:
     
     Palacio();
 
-    Edificio crea_granja();
     static Palacio* creaPalacio();
+
+    Edificio crea_granja();
 
     long getPoblacion();
     void addPoblacion(long cantidad);

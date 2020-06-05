@@ -36,6 +36,7 @@ public:
 
     //TODO Siguiente Fase:
     void setPalacio(Palacio* palacio);
+    Palacio* getPalacio();
 };
 
 #endif // CIUDAD_H

@@ -20,6 +20,8 @@ Palacio* Palacio::creaPalacio()
 
     nuevo->residencias = new Residencia();
 
+    nuevo->jefe = "MAKOKI";
+
     return nuevo;
 }
 

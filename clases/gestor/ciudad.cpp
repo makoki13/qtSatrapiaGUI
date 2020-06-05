@@ -57,3 +57,8 @@ void Ciudad::setPalacio(Palacio *palacio)
 {
     this->palacio = palacio;
 }
+
+Palacio* Ciudad::getPalacio()
+{
+    return this->palacio;
+}
