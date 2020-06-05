@@ -1,12 +1,30 @@
 #include "nacion.h"
 
-Nacion::Nacion(TipoNaciones tipo)
+Nacion::Nacion()
+{
+
+}
+
+Nacion::Nacion(SubtipoItem_CIVILIZACION tipo)
 {
     this->tipo = tipo;
 }
 
-void Nacion::addCiudad()
+void Nacion::setTipo(SubtipoItem_CIVILIZACION tipoNacion) {
+    this->tipo = tipoNacion;
+}
+
+SubtipoItem_CIVILIZACION Nacion::getTipo()
 {
-    Ciudad *ciudad = new Ciudad();
-    this->ciudades.append(ciudad);
+    return this->tipo;
+}
+
+void Nacion::addCiudad(QString nombre, bool esCapital, Posicion pos)
+{    
+    this->ciudades.append(Ciudad::creaCiudad(nombre,esCapital,pos));
+}
+
+QVector<Ciudad *> Nacion::listaCiudades()
+{
+    return this->ciudades;
 }

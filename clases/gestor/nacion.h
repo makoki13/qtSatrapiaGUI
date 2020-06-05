@@ -10,20 +10,23 @@
 #include <QVector>
 
 #include "ciudad.h"
-
-enum TipoNaciones {
-    TRIBU = 1, SATRAPIA = 2, IMPERIO = 3
-};
+#include "../item.h"
 
 class Nacion
 {
 private:
-    TipoNaciones tipo;
+    SubtipoItem_CIVILIZACION tipo;
     QVector<Ciudad*> ciudades;
+    Ciudad miCiudadTest;
 public:
-    Nacion(TipoNaciones tipo);
+    Nacion();
+    Nacion(SubtipoItem_CIVILIZACION tipo);
 
-    void addCiudad();
+    void setTipo(SubtipoItem_CIVILIZACION tipo);
+    SubtipoItem_CIVILIZACION getTipo();
+
+    void addCiudad(QString nombre, bool esCapital, Posicion pos);
+     QVector<Ciudad*> listaCiudades();
 };
 
 #endif // NACION_H

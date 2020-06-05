@@ -6,6 +6,7 @@ class Posicion
 {
 public:
     Posicion();
+    Posicion(long x, long y, long z = 0);
 
     long x, y, z = 0;
 };

@@ -23,11 +23,18 @@ public:
     Ciudad();
     Ciudad(bool esCapital, Posicion posicion);
 
-    static Ciudad creaCiudad(QString nombre, bool esCapital, Posicion posicion);
+    static Ciudad* creaCiudad(QString nombre, bool esCapital, Posicion posicion);
 
     void setNombre(QString nombre);
     QString getNombre();
 
+    void setCapital(bool valor);
+    bool esCapital();
+
+    void setPosicion(Posicion pos);
+    Posicion getPosicion();
+
+    //TODO Siguiente Fase:
     void setPalacio(Palacio* palacio);
 };
 

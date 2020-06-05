@@ -11,13 +11,13 @@ Ciudad::Ciudad(bool esCapital, Posicion posicion)
     this->posicion = posicion;
 }
 
-Ciudad Ciudad::creaCiudad(QString nombre, bool esCapital, Posicion posicion)
+Ciudad* Ciudad::creaCiudad(QString nombre, bool esCapital, Posicion posicion)
 {
-    Ciudad nueva(esCapital, posicion);
-    nueva.setNombre(nombre);
+    Ciudad* nueva = new Ciudad(esCapital, posicion);
+    nueva->setNombre(nombre);
 
-    if (nueva.es_capital == true) {
-        nueva.setPalacio(Palacio::creaPalacio());
+    if (nueva->es_capital == true) {
+        nueva->setPalacio(Palacio::creaPalacio());
     }
 
     return nueva;
@@ -31,6 +31,26 @@ void Ciudad::setNombre(QString nombre)
 QString Ciudad::getNombre()
 {
     return this->nombre;
+}
+
+void Ciudad::setCapital(bool valor)
+{
+    this->es_capital = valor;
+}
+
+bool Ciudad::esCapital()
+{
+    return this->es_capital;
+}
+
+void Ciudad::setPosicion(Posicion pos)
+{
+    this->posicion = pos;
+}
+
+Posicion Ciudad::getPosicion()
+{
+    return this->posicion;
 }
 
 void Ciudad::setPalacio(Palacio *palacio)
