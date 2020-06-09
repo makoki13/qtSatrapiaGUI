@@ -21,6 +21,8 @@ private:
     QVector<Extractor*> extractores;
     Almacen almacen;
 
+    QTimer *cronometro = new QTimer(this);
+
 public:
     Edificio();
     Edificio( Almacen almacen );
@@ -34,7 +36,9 @@ public:
 
     long getCantidadEnAlmacen(QString nombreRecurso);
 
-    Silo getSiloDeAlmacen(QString nombreRecurso);
+    Silo* getSiloDeAlmacen(QString nombreRecurso);
+
+    Extractor* getExtractor(QString nombreRecurso);
 
 public slots:
     void recoge();

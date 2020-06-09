@@ -20,6 +20,7 @@
 
 #include "../recursos/edificio.h"
 #include "../recursos/residencia.h"
+#include "../gestor/ciudad.h"
 
 using namespace std;
 
@@ -48,13 +49,14 @@ public:
     
     Palacio();
 
-    static Palacio* creaPalacio();
-
-    Edificio crea_granja();
+    static Palacio* creaPalacio(Posicion pos);
 
     long getPoblacion();
     void addPoblacion(long cantidad);
     void restaPoblacion(long cantidad);
+
+    Edificio crea_granja();
+    QVector<Edificio*> listaGranjas();
    
 };
 

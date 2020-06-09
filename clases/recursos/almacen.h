@@ -7,12 +7,12 @@
 class Almacen
 {
 private:
-    QList<Silo> silos;
+    QList<Silo*> silos;
 public:
     Almacen();
 
-    void addSilo(Silo silo);
-    QList<Silo> listaSilos();
+    void addSilo(Silo* silo);
+    QList<Silo*> listaSilos();
 };
 
 #endif // ALMACEN_H

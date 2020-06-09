@@ -18,6 +18,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    clases/gestor/ciudad.cpp \
+    clases/gestor/nacion.cpp \
+    clases/gestor/palacio.cpp \
+    clases/recursos/cuartel.cpp \
     clases/recursos/estructura.cpp \
     clases/item.cpp \
     clases/jugador.cpp \
@@ -31,6 +35,7 @@ SOURCES += \
     clases/recursos/extractor.cpp \
     clases/recursos/fuente.cpp \
     clases/recursos/recurso.cpp \
+    clases/recursos/residencia.cpp \
     clases/recursos/silo.cpp \
     clases/sgbd.cpp \
     clases/superv_partida.cpp \
@@ -42,6 +47,10 @@ SOURCES += \
     testclases.cpp
 
 HEADERS += \
+    clases/gestor/ciudad.h \
+    clases/gestor/nacion.h \
+    clases/gestor/palacio.h \
+    clases/recursos/cuartel.h \
     clases/recursos/estructura.h \
     clases/item.h \
     clases/jugador.h \
@@ -55,6 +64,7 @@ HEADERS += \
     clases/recursos/extractor.h \
     clases/recursos/fuente.h \
     clases/recursos/recurso.h \
+    clases/recursos/residencia.h \
     clases/recursos/silo.h \
     clases/sgbd.h \
     clases/superv_partida.h \

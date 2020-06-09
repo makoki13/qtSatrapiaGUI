@@ -8,7 +8,7 @@ Palacio::Palacio()
     
 }
 
-Palacio* Palacio::creaPalacio()
+Palacio* Palacio::creaPalacio(Posicion pos)
 {
     Palacio *nuevo = new Palacio;
 
@@ -18,7 +18,8 @@ Palacio* Palacio::creaPalacio()
     nuevo->minasHierro = QVector<Edificio*>();
     nuevo->minasOro = QVector<Edificio*>();
 
-    nuevo->residencias = new Residencia();
+    nuevo->residencias = new Residencia(pos);
+    //nuevo->residencias->start_recoger();
 
     nuevo->jefe = "MAKOKI";
 
@@ -36,4 +37,9 @@ void Palacio::addPoblacion(long cantidad) {
 
 void Palacio::restaPoblacion(long cantidad) {
     this->residencias->restaPoblacion(cantidad);
+}
+
+QVector<Edificio *> Palacio::listaGranjas()
+{
+    return this->granjas;
 }

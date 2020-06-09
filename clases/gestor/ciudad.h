@@ -12,6 +12,8 @@
 
 #include "palacio.h"
 
+class Palacio;
+
 class Ciudad
 {
 private:
@@ -19,6 +21,7 @@ private:
     QString nombre;
     Posicion posicion;
     Palacio *palacio;
+    //TODO crear ayuntamiento
 public:
     Ciudad();
     Ciudad(bool esCapital, Posicion posicion);
@@ -34,7 +37,6 @@ public:
     void setPosicion(Posicion pos);
     Posicion getPosicion();
 
-    //TODO Siguiente Fase:
     void setPalacio(Palacio* palacio);
     Palacio* getPalacio();
 };

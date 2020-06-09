@@ -5,12 +5,12 @@ Almacen::Almacen()
 
 }
 
-void Almacen::addSilo(Silo silo)
+void Almacen::addSilo(Silo* silo)
 {
     this->silos.insert(this->silos.count(),silo);
 }
 
-QList<Silo> Almacen::listaSilos()
+QList<Silo*> Almacen::listaSilos()
 {
     return silos;
 }

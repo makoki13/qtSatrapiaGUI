@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "./clases/recursos/edificio.h"
+#include "./clases/gestor/nacion.h"
 
 namespace Ui {
 class TestClases;
@@ -27,9 +28,13 @@ private slots:
 private:
     Ui::TestClases *ui;
 
+    /*
     Almacen almacen;
     Extractor extractor;
     Edificio edificio;
+    */
+
+    Nacion *nacion = new Nacion();
 };
 
 #endif // TESTCLASES_H

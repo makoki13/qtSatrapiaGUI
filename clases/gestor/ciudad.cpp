@@ -17,7 +17,7 @@ Ciudad* Ciudad::creaCiudad(QString nombre, bool esCapital, Posicion posicion)
     nueva->setNombre(nombre);
 
     if (nueva->es_capital == true) {
-        nueva->setPalacio(Palacio::creaPalacio());
+        nueva->setPalacio(Palacio::creaPalacio(posicion));
     }
 
     return nueva;

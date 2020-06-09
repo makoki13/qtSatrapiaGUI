@@ -59,7 +59,7 @@ long Extractor::getCantidadSilo()
 
 void Extractor::_extraer()
 {
-   long cantidad = this->fuente.extraer(cantidadPorExtraccion);
+   long cantidad = this->fuente.extraer(this->cantidadPorExtraccion);
    if (cantidad > 0) this->silo.suma(cantidad);
 }
 

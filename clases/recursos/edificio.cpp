@@ -6,30 +6,48 @@
 
 using namespace std;
 
-Silo Edificio::getSiloDeAlmacen(QString nombreRecurso)
-{
-    Silo silo;
+Silo* Edificio::getSiloDeAlmacen(QString nombreRecurso)
+{    
+    QList<Silo*> listaSilos = almacen.listaSilos();
 
-    QList<Silo> listaSilos = almacen.listaSilos();
-    QList<Silo>::Iterator it = listaSilos.begin();
-    for ( ; it != listaSilos.constEnd(); ++it ) {
-        Silo& silo = *it;
-        if (silo.nombreRecurso() == nombreRecurso) {
-            return silo;
+    for(int i = 0; i<listaSilos.size(); i++){
+        if (listaSilos[i]->nombreRecurso() == nombreRecurso) {
+            return listaSilos[i];
         }
     }
 
-    return silo;
+    /*
+    QList<Silo>::Iterator it = listaSilos.begin();
+    for ( ; it != listaSilos.constEnd(); ++it ) {        
+ q       if (it->nombreRecurso() == nombreRecurso) {
+            return it;
+        }
+    }
+    */
+
+    return nullptr;
+}
+
+Extractor *Edificio::getExtractor(QString nombreRecurso)
+{
+    for(int i = 0; i<extractores.size(); i++){
+        if (extractores[i]->getSilo().nombreRecurso() == nombreRecurso) {
+            return extractores[i];
+        }
+    }
+    //TODO recorrer vector buscando el extractor del recurso
+    return nullptr;
 }
 
 Edificio::Edificio()
 {
-
+    connect(cronometro, SIGNAL(timeout()),this,SLOT(recoge()));
 }
 
 Edificio::Edificio (Almacen almacen)
 {
     this->almacen = almacen;
+    connect(cronometro, SIGNAL(timeout()),this,SLOT(recoge()));
 }
 
 void Edificio::setAlmacen(Almacen almacen)
@@ -60,7 +78,7 @@ void Edificio::addExtractor_new()
 
 void Edificio::addSiloEnAlmacen(Recurso recurso)
 {
-    Silo silo(recurso,-1);
+    Silo* silo = new Silo(recurso,-1);
 
     almacen.addSilo(silo);
 }
@@ -88,9 +106,9 @@ void Edificio::recoge()
          long cantidad = e->vacia();
 
          Silo siloDeExtractor = e->getSilo();
-         Silo siloDeAlmacen = getSiloDeAlmacen( siloDeExtractor.nombreRecurso() );
+         Silo* siloDeAlmacen = getSiloDeAlmacen( siloDeExtractor.nombreRecurso() );
 
-         siloDeAlmacen.suma(cantidad);
+         siloDeAlmacen->suma(cantidad);
 
          qDebug() << getCantidadEnAlmacen("ORO");
      }
@@ -98,15 +116,15 @@ void Edificio::recoge()
 
 void Edificio::recogeRecursos()
 {
-    QTimer *cronometro = new QTimer();
-    connect(cronometro, SIGNAL(timeout()),this,SLOT(recoge()));
+    //QTimer *cronometro = new QTimer();
+    //connect(cronometro, SIGNAL(timeout()),this,SLOT(recoge()));
     cronometro->start(3000);
 }
 
 long Edificio::getCantidadEnAlmacen(QString nombreRecurso)
 {
-    Silo siloDeAlmacen = getSiloDeAlmacen( nombreRecurso );
-    return siloDeAlmacen.getCantidad();
+    Silo* siloDeAlmacen = getSiloDeAlmacen( nombreRecurso );
+    return siloDeAlmacen->getCantidad();
 }
 
 
