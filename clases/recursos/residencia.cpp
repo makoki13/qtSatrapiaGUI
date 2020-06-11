@@ -6,7 +6,7 @@ Residencia::Residencia()
 
 }
 
-Residencia::Residencia(Posicion pos)
+Residencia::Residencia(Posicion pos, long cantidadExtraccion, long tiempoExtraccion)
 {
     Almacen almacen = Almacen();
     Silo* silo = new Silo(Recurso("POBLACION",POBLACION) , 5000000);
@@ -17,8 +17,8 @@ Residencia::Residencia(Posicion pos)
                 new Extractor(
                     Fuente(pos,Recurso("POBLACION",POBLACION),100),
                     *silo,
-                    10,
-                    5
+                    cantidadExtraccion,
+                    tiempoExtraccion
                     )
                 );
 
@@ -45,7 +45,7 @@ void Residencia::start_recoger()
 {
     estado = EN_MARCHA;
     //this->getExtractor("POBLACION")->extrae();
-    this->recogeRecursos();
+    this->recogeRecursos(this->getTiempoPorExtraccion("POBLACION"));
 }
 
 void Residencia::stop_recoger()
@@ -53,3 +53,18 @@ void Residencia::stop_recoger()
     estado = PARADO;
     this->getExtractor("POBLACION")->para();
 }
+
+void Residencia::setCantidadPorExtraccion(long cantidad)
+{
+    //TODO
+    //Si el valor es negativo parar el extractor y eliminar poblacion periódicamente
+    Edificio::setCantidadPorExtraccion("POBLACION",cantidad);
+}
+
+
+/*
+void Residencia::setTiempoPorExtraccion(long cantidad)
+{
+    //Edificio::setTiempoPorExtraccion(cantidad);
+}
+*/

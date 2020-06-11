@@ -27,6 +27,8 @@ public:
 
     void addCiudad(QString nombre, bool esCapital, Posicion pos);
      QVector<Ciudad*> listaCiudades();
+
+     Ciudad* getCiudad(QString nombre);
 };
 
 #endif // NACION_H

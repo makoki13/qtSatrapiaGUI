@@ -17,7 +17,9 @@ TestClases::TestClases(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TestClases)
 {
+
     Posicion miPosicion;
+
     ui->setupUi(this);
 
     //Aqui se probará el tema de las clases
@@ -56,9 +58,12 @@ TestClases::TestClases(QWidget *parent) :
     edificio.addExtractor_new();
     */
 
+
     this->nacion->setTipo(TRIBU);
 
+
     nacion->addCiudad("GANDIA", true, miPosicion);
+
 
     Posicion otraPosicion;
 
@@ -67,6 +72,9 @@ TestClases::TestClases(QWidget *parent) :
     otraPosicion.y = 150;
 
     nacion->addCiudad("CULLERA", false, otraPosicion);
+
+    connect(cronometro, SIGNAL(timeout()),this,SLOT(muestra()));
+    cronometro->start(1000);
 }
 
 TestClases::~TestClases()
@@ -78,7 +86,7 @@ void TestClases::on_pushButton_clicked()
 {    
     //long cantidad = edificio.getCantidadEnAlmacen("ORO");
     //ui->listWidget->addItem("Cantidad: " + QString::number(cantidad));
-
+    /*
     QVector<Ciudad *> listaCiudades = nacion->listaCiudades();
     QVectorIterator<Ciudad*> it(listaCiudades);
      while (it.hasNext()) {
@@ -91,10 +99,18 @@ void TestClases::on_pushButton_clicked()
      }
 
      qDebug() << this->nacion->getTipo() ;
+     */
+
+    Ciudad* gandia = this->nacion->getCiudad("GANDIA");
+    gandia->getPalacio()->setIncrementoPoblacion(100);
 }
 
 void TestClases::on_pushButton_2_clicked()
-{
+{    
+    Ciudad* gandia = this->nacion->getCiudad("GANDIA");
+    gandia->getPalacio()->setIncrementoPoblacion(-50);
+
+    /*
     QVector<Ciudad *> listaCiudades = nacion->listaCiudades();
     QVectorIterator<Ciudad*> it(listaCiudades);
     while (it.hasNext()) {
@@ -110,10 +126,12 @@ void TestClases::on_pushButton_2_clicked()
             //c->setCapital(false);
         }
     }
+    */
 }
 
 void TestClases::on_pushButton_3_clicked()
 {
+    /*
     QVector<Ciudad *> listaCiudades = nacion->listaCiudades();
     QVectorIterator<Ciudad*> it(listaCiudades);
     while (it.hasNext()) {
@@ -127,4 +145,24 @@ void TestClases::on_pushButton_3_clicked()
             //c->setCapital(false);
         }
     }
+    */
+}
+
+void TestClases::muestra() {
+
+    QVector<Ciudad *> listaCiudades = nacion->listaCiudades();
+    QVectorIterator<Ciudad*> it(listaCiudades);
+    while (it.hasNext()) {
+        int poblacion = 0;
+        Ciudad *c = it.next();
+        //if (c->esCapital()) {
+            Palacio* p = c->getPalacio();
+            poblacion = p->getPoblacion();
+        //}
+        QDebug deb = qDebug();
+        deb << c->getNombre();
+        if (c->esCapital())  deb << " * ";
+        deb << " POB: " << poblacion ;
+    }
+
 }

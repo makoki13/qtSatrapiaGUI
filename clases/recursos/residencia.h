@@ -9,16 +9,13 @@
 class Residencia : Edificio
 {
 private:
-    long cantidadPorExtraccion = 100;
-    long tiempoPorExtraccion = 1;
-
     QTimer *cronometro = new QTimer(this);
 
     TipoEstadosExtractor estado;
     Posicion pos;
 public:
     Residencia();
-    Residencia(Posicion pos);
+    Residencia(Posicion pos, long cantidadExtraccion, long tiempoExtraccion);
 
     void addPoblacion(long cantidad);
     void restaPoblacion(long cantidad);
@@ -26,6 +23,9 @@ public:
 
     void start_recoger();
     void stop_recoger();
+
+    void setCantidadPorExtraccion(long cantidad);
+    //void setTiempoPorExtraccion(long cantidad);
 
 };
 

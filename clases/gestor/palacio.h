@@ -54,6 +54,7 @@ public:
     long getPoblacion();
     void addPoblacion(long cantidad);
     void restaPoblacion(long cantidad);
+    void setIncrementoPoblacion(long cantidad);
 
     Edificio crea_granja();
     QVector<Edificio*> listaGranjas();

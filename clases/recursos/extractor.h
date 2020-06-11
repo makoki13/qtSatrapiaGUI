@@ -39,7 +39,9 @@ public:
     Silo getSilo();
 
     void setCantidadPorExtraccion(long cantidad);
+    long getCantidadPorExtraccion();
     void setTiempoPorExtraccion(long segundos);
+    long getTiempoPorExtraccion();
 
     void setTope(long tope);
 

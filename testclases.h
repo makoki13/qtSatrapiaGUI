@@ -25,6 +25,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void muestra();
+
 private:
     Ui::TestClases *ui;
 
@@ -35,6 +37,8 @@ private:
     */
 
     Nacion *nacion = new Nacion();
+
+    QTimer *cronometro = new QTimer(this);
 };
 
 #endif // TESTCLASES_H

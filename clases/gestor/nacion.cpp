@@ -28,3 +28,15 @@ QVector<Ciudad *> Nacion::listaCiudades()
 {
     return this->ciudades;
 }
+
+Ciudad *Nacion::getCiudad(QString nombre)
+{
+    QVector<Ciudad *> vectorCiudades = this->listaCiudades();
+    QVectorIterator<Ciudad*> it(vectorCiudades);
+     while (it.hasNext()) {
+        Ciudad *c = it.next();
+        if (c->getNombre() == nombre) return c;
+     }
+
+     return nullptr;
+}

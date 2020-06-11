@@ -23,6 +23,10 @@ private:
 
     QTimer *cronometro = new QTimer(this);
 
+protected:
+    //long cantidadPorExtraccion = 5;
+    //long tiempoPorExtraccion = 3;
+
 public:
     Edificio();
     Edificio( Almacen almacen );
@@ -32,13 +36,17 @@ public:
     void addExtractor( Extractor *extractor );
     void addExtractor_new();
     void addSiloEnAlmacen(Recurso recurso);    
-    void recogeRecursos();
+    void recogeRecursos(long tiempoTimer);
 
     long getCantidadEnAlmacen(QString nombreRecurso);
 
     Silo* getSiloDeAlmacen(QString nombreRecurso);
 
     Extractor* getExtractor(QString nombreRecurso);
+
+    void setCantidadPorExtraccion(QString nombreRecurso, long cantidad);
+    long getCantidadPorExtraccion(QString nombreRecurso);
+    long getTiempoPorExtraccion(QString nombreRecurso);
 
 public slots:
     void recoge();

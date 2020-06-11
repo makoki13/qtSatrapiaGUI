@@ -42,9 +42,19 @@ void Extractor::setCantidadPorExtraccion(long cantidad)
     this->cantidadPorExtraccion = cantidad;
 }
 
+long Extractor::getCantidadPorExtraccion()
+{
+    return this->cantidadPorExtraccion;
+}
+
 void Extractor::setTiempoPorExtraccion(long segundos)
 {
-    this->tiempoPorExtraccion = segundos;
+    this->tiempoPorExtraccion = segundos * 1000;
+}
+
+long Extractor::getTiempoPorExtraccion()
+{
+    return this->tiempoPorExtraccion;
 }
 
 void Extractor::setTope(long tope)
@@ -66,7 +76,7 @@ void Extractor::_extraer()
 void Extractor::extrae()
 {
     estado = EN_MARCHA;
-    cronometro->start(1000);
+    cronometro->start(this->tiempoPorExtraccion);
 }
 
 void Extractor::para()
